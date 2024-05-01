@@ -1,0 +1,9 @@
+{
+  "name": "transport-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/transport-e2e/src",
+  "implicitDependencies": ["transport"],
+  "// targets": "to see all targets run: nx show project transport-e2e --web",
+  "targets": {}
+}
