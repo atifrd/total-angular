@@ -5,13 +5,13 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '../../../../environments';
 import { Router } from '@angular/router';
-import { Models } from '@total/core';
+import { User } from 'libs/core/src/models/account';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   // eslint-disable-next-line
-  private currentUserSubject: BehaviorSubject<Models.Account.User | any>;
-  public currentUser: Observable<Models.Account.User>;
+  private currentUserSubject: BehaviorSubject<User | any>;
+  public currentUser: Observable<User>;
 
   constructor(
     private router: Router,
@@ -22,12 +22,12 @@ export class AuthenticationService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get currentUserValue(): Models.Account.User {
+  public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
 
   login(email: string, password: string) {
-    return this.http.post<Models.Account.User>(`${environment.apiUrl}/api/account/login`, { email, password }).pipe(
+    return this.http.post<User>(`${environment.apiUrl}/api/account/login`, { email, password }).pipe(
       map((user) => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));

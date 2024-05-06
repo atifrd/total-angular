@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 
 // Project import
 import { LayoutService } from '../../../../services/layout.service';
-import { Models } from '@total/core';
+import { NavigationItem } from 'libs/core/src/models/layout';
 
 @Component({
   selector: 'app-menu-item',
@@ -12,7 +12,7 @@ import { Models } from '@total/core';
 })
 export class MenuItemComponent {
   // public props
-  @Input() item!: Models.Layout.NavigationItem;
+  @Input() item!: NavigationItem;
 
   // Constructor
   constructor(private layoutService: LayoutService) {}

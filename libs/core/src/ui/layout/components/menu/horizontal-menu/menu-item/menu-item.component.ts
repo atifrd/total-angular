@@ -1,7 +1,7 @@
 // Angular import
 import { Component, Input } from '@angular/core';
 import { Location, LocationStrategy } from '@angular/common';
-import { Models } from '@total/core';
+import { NavigationItem } from 'libs/core/src/models/layout';
 
 // Project import
 
@@ -10,9 +10,9 @@ import { Models } from '@total/core';
   templateUrl: './menu-item.component.html',
   styleUrls: ['./menu-item.component.scss']
 })
-export class MenuItemHorizontalComponent {
+export class MenuItemComponent {
   // public props
-  @Input() item: Models.Layout.NavigationItem;
+  @Input() item: NavigationItem;
 
   // Constructor
   constructor(

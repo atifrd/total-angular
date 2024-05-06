@@ -1,7 +1,7 @@
 // Angular import
 import { AfterViewInit, Component, ElementRef, Input, NgZone, ViewChild } from '@angular/core';
 import { Location, LocationStrategy } from '@angular/common';
-import { Models } from '@total/core';
+import { NavigationItem } from 'libs/core/src/models/layout';
 
 // project import
 
@@ -14,7 +14,7 @@ export class HorizontalMenuComponent implements AfterViewInit {
   /**
    * List of menu items to be rendered
    */
-  @Input() menus: Models.Layout.NavigationItem[];
+  @Input() menus: NavigationItem[];
 
   /**
    * Theme Configuration

@@ -3,8 +3,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Location, LocationStrategy } from '@angular/common';
 
 // project import
-import { Models } from '@total/core';
 import { LayoutService } from '../../../services/layout.service';
+import { NavigationItem } from 'libs/core/src/models/layout';
+import { LayoutType } from 'libs/core/src/models/enums';
 
 @Component({
   selector: 'app-vertical-menu',
@@ -13,7 +14,7 @@ import { LayoutService } from '../../../services/layout.service';
 })
 export class VerticalMenuComponent implements OnInit {
   // public props
-  @Input() menus: Models.Layout.NavigationItem[];
+  @Input() menus: NavigationItem[];
   showUser: boolean = false;
   showContent = true;
 
@@ -52,13 +53,13 @@ export class VerticalMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.layout.layout.subscribe((res) => {
-      if (res == Models.Enum.LayoutType.VERTICAL) {
+      if (res == LayoutType.VERTICAL) {
         this.showContent = true;
       }
-      if (res == Models.Enum.LayoutType.HORIZONTAL) {
+      if (res == LayoutType.HORIZONTAL) {
         this.showContent = false;
       }
-      if (res == Models.Enum.LayoutType.COMPACT) {
+      if (res == LayoutType.COMPACT) {
         this.showContent = false;
       }
     });

@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 
 // project import
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Models } from '@total/core';
+import { NavigationItem } from 'libs/core/src/models/layout';
 
 @Component({
   selector: 'app-menu-collapse-compact',
@@ -23,7 +23,7 @@ export class MenuCollapseCompactComponent {
   // public props
 
   // all Version Get Item(Component Name Take)
-  @Input() item: Models.Layout.NavigationItem;
+  @Input() item: NavigationItem;
 
   visible = false;
   windowWidth = window.innerWidth;

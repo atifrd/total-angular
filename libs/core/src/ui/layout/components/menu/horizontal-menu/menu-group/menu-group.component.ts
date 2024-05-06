@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 // project import
 import { Location } from '@angular/common';
-import { Models } from '@total/core';
+import { NavigationItem } from 'libs/core/src/models/layout';
 
 @Component({
   selector: 'app-menu-group-horizontal',
@@ -13,7 +13,7 @@ import { Models } from '@total/core';
 export class MenuGroupHorizontalComponent implements OnInit {
   // public props
   // All Version in Group Name
-  @Input() item: Models.Layout.NavigationItem;
+  @Input() item: NavigationItem;
 
   // Constructor
   constructor(

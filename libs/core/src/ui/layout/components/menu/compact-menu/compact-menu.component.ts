@@ -1,7 +1,7 @@
 // Angular import
 import { Component, Input } from '@angular/core';
 import { Location, LocationStrategy } from '@angular/common';
-import { Models } from '@total/core';
+import { NavigationItem } from 'libs/core/src/models/layout';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { Models } from '@total/core';
 })
 export class CompactMenuComponent {
   // public props
-  @Input() menus: Models.Layout.NavigationItem[];
+  @Input() menus: NavigationItem[];
 
   // Constructor
   constructor(

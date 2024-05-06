@@ -2,7 +2,7 @@
 import { Component, Input, NgZone, OnInit } from '@angular/core';
 
 import { Location } from '@angular/common';
-import { Models } from '@total/core';
+import { NavigationItem } from 'libs/core/src/models/layout';
 
 @Component({
   selector: 'app-menu-group-compact',
@@ -13,7 +13,7 @@ export class MenuGroupCompactComponent implements OnInit {
   // public props
 
   // All Version in Group Name
-  @Input() item!: Models.Layout.NavigationItem;
+  @Input() item!: NavigationItem;
 
   // Constructor
   constructor(

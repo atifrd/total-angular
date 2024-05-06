@@ -2,8 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 
 // project import
-import { Models } from '@total/core';
 import { LayoutService } from '../../../services/layout.service';
+import { LayoutType } from 'libs/core/src/models/enums';
 
 @Component({
   selector: 'app-nav-left',
@@ -17,13 +17,13 @@ export class NavLeftComponent implements OnInit {
 
   ngOnInit() {
     this.layoutService.layout.subscribe((res) => {
-      if (res === Models.Enum.LayoutType.VERTICAL) {
+      if (res === LayoutType.VERTICAL) {
         this.showToggleMenu = true;
       }
-      if (res == Models.Enum.LayoutType.HORIZONTAL) {
+      if (res == LayoutType.HORIZONTAL) {
         this.showToggleMenu = false;
       }
-      if (res === Models.Enum.LayoutType.COMPACT) {
+      if (res === LayoutType.COMPACT) {
         this.showToggleMenu = true;
       }
     });

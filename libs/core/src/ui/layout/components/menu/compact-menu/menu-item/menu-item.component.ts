@@ -1,7 +1,7 @@
 // Angular import
 import { Component, Input } from '@angular/core';
-import { Models } from '@total/core';
 import { LayoutService } from '../../../../services/layout.service';
+import { NavigationItem } from 'libs/core/src/models/layout';
 
 // Project import
 
@@ -12,7 +12,7 @@ import { LayoutService } from '../../../../services/layout.service';
 })
 export class MenuItemCompactComponent {
   // public props
-  @Input() item!: Models.Layout.NavigationItem;
+  @Input() item!: NavigationItem;
 
   // Constructor
   constructor(private layoutService: LayoutService) {}
