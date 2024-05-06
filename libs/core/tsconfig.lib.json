@@ -7,6 +7,7 @@
     "inlineSources": true,
     "types": [],
     "resolveJsonModule": true,
+    "strictPropertyInitialization": false,
   },
   "exclude": [
     "src/**/*.spec.ts",
