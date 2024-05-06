@@ -5,15 +5,29 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgScrollbarModule } from "ngx-scrollbar";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { MaterialModule } from "./material.module";
 import { CustomTranslateLoader } from "../i18n/custom-translate-loader";
 import { RouterModule } from '@angular/router';
-import { layoutComponents } from "../ui";
+import { layoutServices } from "../ui/layout/layout-services-list";
+import { LayoutComponent } from "../ui/layout/components/layout.component";
+import { layoutComponentList, layoutStandAloneComponentList } from "../ui";
+import { MaterialModule } from "./material.module";
+import { SharedModule } from "./shared.module";
+import { CardComponent } from "../ui/layout/components/card/card.component";
+import { FooterComponent } from "../ui/layout/components/footer/footer.component";
+import { BreadcrumbComponent } from "../ui/layout/components/breadcrumb/breadcrumb.component";
+import { ConfigurationComponent } from "../ui/layout/components/configuration/configuration.component";
+import { AuthenticationService } from "../ui/auth/services";
+
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule,
     MaterialModule,
+    //SharedModule,
     NgScrollbarModule,
+    //CardComponent,
+    // FooterComponent,
+    // BreadcrumbComponent,
+    // ConfigurationComponent,
     RouterModule.forChild([]),
     TranslateModule.forRoot({
       loader: {
@@ -21,11 +35,10 @@ import { layoutComponents } from "../ui";
         useClass: CustomTranslateLoader
       }
     }),
-
   ],
-  declarations: [...layoutComponents],
-  exports: [...layoutComponents],
-  providers: []
+  declarations: [LayoutComponent, ...layoutComponentList],
+  exports: [LayoutComponent, ...layoutComponentList, MaterialModule],
+  providers: [...layoutServices, AuthenticationService]
 })
 export class ServiceRegistryModule {
   static forRoot(config: ServiceRegistryModule_CONFIG): ModuleWithProviders<ServiceRegistryModule> {
