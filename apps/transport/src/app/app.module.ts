@@ -6,6 +6,7 @@ import { appRoutes } from './app.routes';
 import { Modules, Models } from '@total/core';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,6 +14,7 @@ import { SettingsComponent } from './components/settings/settings.component';
     SettingsComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     Modules.ServiceRegistryModule.forRoot({
