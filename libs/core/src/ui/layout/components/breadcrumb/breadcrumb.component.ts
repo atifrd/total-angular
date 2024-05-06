@@ -3,9 +3,9 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterModule, Event } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { NavigationItem } from 'libs/core/src/models/layout';
 
 // project import
-import { Models } from '@total/core';
 interface titleType {
   // eslint-disable-next-line
   url: string | boolean | any | undefined;
@@ -26,10 +26,10 @@ export class BreadcrumbComponent {
   // public props
   @Input() type: string;
 
-  navigations: Models.Layout.NavigationItem[];
+  navigations: NavigationItem[];
   breadcrumbList: Array<string> = [];
   navigationList: titleType[];
-  @Input() set menus(val : Models.Layout.NavigationItem[]){
+  @Input() set menus(val : NavigationItem[]){
     this.navigations = val;
   }
 
@@ -55,7 +55,7 @@ export class BreadcrumbComponent {
     });
   }
 
-  filterNavigation(navItems: Models.Layout.NavigationItem[], activeLink: string): titleType[] {
+  filterNavigation(navItems: NavigationItem[], activeLink: string): titleType[] {
     for (const navItem of navItems) {
       if (navItem.type === 'item' && 'url' in navItem && navItem.url === activeLink) {
         return [

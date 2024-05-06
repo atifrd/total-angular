@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Models } from '@total/core';
 import { LayoutSettings } from 'libs/core/src/models/configs';
+import { LayoutDIR, LayoutType, Projects } from 'libs/core/src/models/enums';
+import { NavigationItem } from 'libs/core/src/models/layout';
 import { Observable, ReplaySubject, Subject, of } from 'rxjs';
 
 @Injectable({
@@ -17,13 +18,13 @@ export class LayoutService {
     componentMenuState = new Subject();
 
     // theme sidebar direction change in rtl mode
-    directionChange: Subject<Models.Enum.LayoutDIR> = new Subject();
+    directionChange: Subject<LayoutDIR> = new Subject();
 
     // color change
     color = new ReplaySubject<string>(10);
 
     // layout change
-    layout = new ReplaySubject<Models.Enum.LayoutType>(3);
+    layout = new ReplaySubject<LayoutType>(3);
 
     drawerOpen = false;
     componentDrawerOpen = false;
@@ -48,9 +49,9 @@ export class LayoutService {
         return settings;
     }
 
-    getMenuList(sender: Models.Enum.Projects): Models.Layout.NavigationItem[] {
+    getMenuList(sender: Projects): NavigationItem[] {
         //read from db based on sender
-        const menus: Models.Layout.NavigationItem[] = [];
+        const menus: NavigationItem[] = [];
         return menus;
     }
 }

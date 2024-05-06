@@ -9,35 +9,35 @@ import { CustomTranslateLoader } from "../i18n/custom-translate-loader";
 import { RouterModule } from '@angular/router';
 import { layoutServices } from "../ui/layout/layout-services-list";
 import { LayoutComponent } from "../ui/layout/components/layout.component";
-import { layoutComponentList, layoutStandAloneComponentList } from "../ui";
 import { MaterialModule } from "./material.module";
-import { SharedModule } from "./shared.module";
 import { CardComponent } from "../ui/layout/components/card/card.component";
 import { FooterComponent } from "../ui/layout/components/footer/footer.component";
 import { BreadcrumbComponent } from "../ui/layout/components/breadcrumb/breadcrumb.component";
 import { ConfigurationComponent } from "../ui/layout/components/configuration/configuration.component";
 import { AuthenticationService } from "../ui/auth/services";
+import { SharedModule } from "./shared.module";
+import { NavBarModule } from "../ui/layout/components/toolbar";
+import { CompactMenuModule, HorizontalMenuModule, VerticalMenuModule } from "../ui/layout/components/menu";
 
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule,
-    MaterialModule,
-    //SharedModule,
-    NgScrollbarModule,
-    //CardComponent,
-    // FooterComponent,
-    // BreadcrumbComponent,
-    // ConfigurationComponent,
-    RouterModule.forChild([]),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useClass: CustomTranslateLoader
-      }
-    }),
+  imports: [
+    ConfigurationComponent,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NavBarModule,
+    SharedModule,
+    RouterModule,
+    VerticalMenuModule,
+    HorizontalMenuModule,
+    CompactMenuModule,
+    BreadcrumbComponent,
+    FooterComponent
   ],
-  declarations: [LayoutComponent, ...layoutComponentList],
-  exports: [LayoutComponent, ...layoutComponentList, MaterialModule],
+  declarations: [LayoutComponent],
+  exports: [LayoutComponent],
   providers: [...layoutServices, AuthenticationService]
 })
 export class ServiceRegistryModule {
