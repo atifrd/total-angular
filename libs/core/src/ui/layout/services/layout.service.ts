@@ -3,6 +3,7 @@ import { LayoutSettings } from 'libs/core/src/models/configs';
 import { LayoutDIR, LayoutType, Projects } from 'libs/core/src/models/enums';
 import { NavigationItem } from 'libs/core/src/models/layout';
 import { Observable, ReplaySubject, Subject, of } from 'rxjs';
+import { menus } from './menu';
 
 @Injectable({
     providedIn: 'root'
@@ -51,7 +52,7 @@ export class LayoutService {
 
     getMenuList(sender: Projects): NavigationItem[] {
         //read from db based on sender
-        const menus: NavigationItem[] = [];
+        //const menus: NavigationItem[] = [];
         return menus;
     }
 }
