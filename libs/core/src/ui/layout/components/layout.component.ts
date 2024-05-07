@@ -6,6 +6,7 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 import { LayoutSettings } from 'libs/core/src/models/configs';
 import { LayoutDIR, LayoutType, LayoutWidth, Projects } from 'libs/core/src/models/enums';
 import { NavigationItem } from 'libs/core/src/models/layout';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -19,8 +20,10 @@ export class LayoutComponent {
   layoutType = LayoutType;
   menus: NavigationItem[] = []
   @ViewChild('sidebar') sidebar: MatDrawer;
+  isSpinnerVisible = true;
 
-  constructor(private readonly layoutService: LayoutService,
+  constructor(private router: Router,
+    private readonly layoutService: LayoutService,
     private readonly breakpointObserver: BreakpointObserver
   ) {
     this.menus = layoutService.getMenuList(Projects.Transport);
@@ -62,6 +65,27 @@ export class LayoutComponent {
       this.layoutSettings.layout = layout;
       this.manageLayout(layout);
     });
+
+        // Use ngOnInit instead of ngAfterViewInit
+        this.router.events.subscribe(
+          (event) => {
+            if (event instanceof NavigationStart) {
+              setTimeout(() => {
+                this.isSpinnerVisible = true;
+              });
+            } else if (event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError) {
+              setTimeout(() => {
+                this.isSpinnerVisible = false;
+              });
+            }
+          },
+          () => {
+            setTimeout(() => {
+              this.isSpinnerVisible = false;
+            });
+          }
+        );
+
   }
 
 
