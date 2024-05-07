@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterModule, Event } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { NavigationItem } from 'libs/core/src/models/layout';
+import { SharedModule } from 'libs/core/src/modules/shared.module';
 
 // project import
 interface titleType {
@@ -18,7 +19,7 @@ interface titleType {
 @Component({
   selector: 'app-breadcrumb',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, SharedModule],
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss']
 })

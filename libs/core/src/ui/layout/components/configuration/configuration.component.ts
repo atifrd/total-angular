@@ -7,11 +7,12 @@ import { Models } from '@total/core';
 import { LayoutService } from '../../services/layout.service';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from 'libs/core/src/modules/shared.module';
 
 @Component({
   selector: 'app-configuration',
   standalone: true,
-  imports: [CommonModule,NgScrollbarModule,MatIconModule],
+  imports: [CommonModule,SharedModule],
   templateUrl: './configuration.component.html',
   styleUrls: ['./configuration.component.scss']
 })
