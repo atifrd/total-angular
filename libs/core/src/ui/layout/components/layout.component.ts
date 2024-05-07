@@ -4,7 +4,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatDrawer, MatDrawerMode } from '@angular/material/sidenav';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { LayoutSettings } from 'libs/core/src/models/configs';
-import { LayoutDIR, LayoutType, LayoutWidth } from 'libs/core/src/models/enums';
+import { LayoutDIR, LayoutType, LayoutWidth, Projects } from 'libs/core/src/models/enums';
 import { NavigationItem } from 'libs/core/src/models/layout';
 
 @Component({
@@ -22,7 +22,9 @@ export class LayoutComponent {
 
   constructor(private readonly layoutService: LayoutService,
     private readonly breakpointObserver: BreakpointObserver
-  ) { }
+  ) {
+    this.menus = layoutService.getMenuList(Projects.Transport);
+  }
 
   // life cycle event
   ngOnInit() {
