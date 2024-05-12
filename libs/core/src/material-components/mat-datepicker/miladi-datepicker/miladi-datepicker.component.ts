@@ -23,7 +23,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './miladi-datepicker.component.css',
 })
 export class MiladiDatepickerComponent {
-  date = new FormControl(new Date().toISOString());
+  date: FormControl = new FormControl();
 
   @Input() set JalaliDate(value: Date) {
     if (!value) return;
@@ -33,7 +33,22 @@ export class MiladiDatepickerComponent {
 
   @Output() miladiDateChanged = new EventEmitter<Date>();
 
+  constructor() {
+    //this.setDateToNow();
+  }
+
+  setDateToNow() {
+    this.date.setValue(new Date().toISOString());
+  }
+
   miladiDateChange(event: MatDatepickerInputEvent<Date>) {
     if (event && event.value) this.miladiDateChanged.emit(event.value);
+  }
+
+  onKeyup(event: KeyboardEvent) {
+    if (event.key == '.') {
+      this.setDateToNow();
+      this.miladiDateChanged.emit(new Date());
+    }
   }
 }

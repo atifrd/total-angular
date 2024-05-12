@@ -1,7 +1,6 @@
 <mat-form-field>
-    <mat-label>Input & change events</mat-label>
-    <input matInput [matDatepicker]="miladiPicker" [formControl]="date" (dateChange)="miladiDateChange( $event)">
-    <mat-hint>MM/DD/YYYY</mat-hint>
+    <input matInput [matDatepicker]="miladiPicker" [formControl]="date" (dateChange)="miladiDateChange( $event)"
+        (keyup)="onKeyup($event)">
     <mat-datepicker-toggle matIconSuffix [for]="miladiPicker"></mat-datepicker-toggle>
     <mat-datepicker #miladiPicker></mat-datepicker>
 </mat-form-field>

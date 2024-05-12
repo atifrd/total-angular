@@ -55,7 +55,7 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
 })
 export class JalaliDatepickerComponent {
-  date = new FormControl(new Date().toISOString());
+  date: FormControl = new FormControl();
 
   @Output() jalaliDateChanged = new EventEmitter<Date>();
 
@@ -65,7 +65,22 @@ export class JalaliDatepickerComponent {
     this.date = new FormControl(value.toISOString());
   }
 
+  constructor() {
+    //this.setDateToNow();
+  }
+
+  setDateToNow() {
+    this.date.setValue(new Date().toISOString());
+  }
+
   jalaliDateChange(event: MatDatepickerInputEvent<Date>) {
     if (event && event.value) this.jalaliDateChanged.emit(event.value);
+  }
+
+  onKeyup(event: KeyboardEvent) {
+    if (event.key == '.') {
+      this.setDateToNow();
+      this.jalaliDateChanged.emit(new Date());
+    }
   }
 }

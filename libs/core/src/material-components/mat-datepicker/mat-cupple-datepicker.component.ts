@@ -29,7 +29,6 @@ export class MatCuppleDatepickerComponent {
   public jalaliDate: Date;
 
   miladiDateChanged(miladiDate: Date) {
-    console.log(`miladi date is :${miladiDate}`);
     if (!miladiDate) return;
 
     this.miladiDate = miladiDate;
@@ -37,13 +36,13 @@ export class MatCuppleDatepickerComponent {
   }
 
   jalaliDateChanged(jalaliDate: Date) {
-    console.log(`jalaliDate date is :${jalaliDate}`);
-
     if (!jalaliDate) return;
 
     this.jalaliDate = jalaliDate; //send jalali date to  miladi component to adjust itself
     this.CupleDateChange.emit(jalaliDate); //set value for parent of mat-cuple component
   }
+
+
 }
 
 interface CupleDate {
