@@ -1,0 +1,7 @@
+<mat-form-field>
+    <mat-label>Input & change events</mat-label>
+    <input matInput [matDatepicker]="ShamsiPicker" [formControl]="date" (dateChange)="jalaliDateChange( $event)">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="ShamsiPicker"></mat-datepicker-toggle>
+    <mat-datepicker #ShamsiPicker></mat-datepicker>
+</mat-form-field>

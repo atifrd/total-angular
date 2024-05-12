@@ -5,6 +5,11 @@
   "prefix": "lib",
   "projectType": "library",
   "tags": [],
+  "schematics": {
+    "@schematics/angular:component": {
+        "style": "scss"
+    }
+  },
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
