@@ -1,0 +1,20 @@
+<p>mat-price-input works!</p>
+<p>{{price|number}}</p>
+
+      <input type="text" matInput [formControl]="emailFormControl"    mask="separator" [allowNegativeNumbers]="false" (keyup)="onKeyup($event)">
+      @if (emailFormControl.hasError('text') && !emailFormControl.hasError('required') ) {
+        <mat-error>Please enter a valid email address</mat-error>
+      }
+      @if (emailFormControl.hasError('required')) {
+        <mat-error>Email is <strong>required</strong></mat-error>
+      }
+
+
+      <p>B: {{ b | currency: 'IRR' : 'code' : '4.2-2' }}</p>
+<!--min.min-max-->
+      <p>B: {{ b | currency: 'IRR' : 'symbol-narrow' : '4.2-2' }}</p>
+
+
+      <!-- <p>B: {{ 100 | currency: 'IRR' : 'symbol' : '4.2-2' : 'IRR' }}</p> -->
+    <p>ffffffff</p>
+
