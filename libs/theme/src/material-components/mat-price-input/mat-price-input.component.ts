@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -7,7 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { MatInput, MatInputModule } from '@angular/material/input';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @Component({
@@ -26,22 +26,26 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
   providers: [provideNgxMask()],
 })
 export class MatPriceInputComponent {
-  emailFormControl = new FormControl(0, [
-    Validators.required,
-    Validators.email,
-  ]);
+  priceInput: any;
 
-  priceFormControl = new FormControl();
+  //#region 2wayDatabinding
+  //2way databinding for parent of MatCuppleDatepickerComponent
+  @Input() set price(value: string) {
+    if (!value) return;
+    this.priceInput = value;
+  }
+  @Output() priceChange = new EventEmitter<string>();
+  onBlur(event: FocusEvent) {
+    this.priceChange.emit(this.priceInput);
+  }
 
-  price = 1000000;
-  a: number = 0.259;
-  b: number = 1.3495;
+  //#endregion
 
   onKeyup(event: KeyboardEvent) {
     if (event.key == '+') {
-      const oldValue = this.emailFormControl.getRawValue() ?? 0;
-      this.emailFormControl.setValue(+oldValue * 1000);
+      // const oldValue = this.priceFormControl.getRawValue() ?? 0;
+      //this.priceFormControl.setValue(this.priceInput+'000');
+      this.priceInput = this.priceInput * 1000;
     }
-    console.log('this.emailFormControl.getRawValue(): ',this.emailFormControl.getRawValue())
   }
 }
