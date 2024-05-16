@@ -7,11 +7,13 @@ import { Modules, Models } from '@total/theme';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StuffTypeComponent } from './components/def/stuff/stuff-type/stuff-type.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     SettingsComponent,
+    StuffTypeComponent
   ],
   imports: [
     BrowserAnimationsModule,
