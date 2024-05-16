@@ -17,6 +17,7 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
+      "@total/core": ["libs/core/src/index.ts"],
       "@total/theme": ["libs/theme/src/index.ts"]
     }
   },
