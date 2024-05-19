@@ -34,7 +34,7 @@ export class StuffTypeComponent {
   dataSource = new MatTableDataSource<models.dtos.stufftypes.StuffTypeDto>(
     ELEMENT_DATA,
   );
-//https://stackblitz.com/edit/angular-material-table-with-form?file=package.json   
+  //https://stackblitz.com/edit/angular-material-table-with-form?file=package.json
   stuffTypeForm = this.fb.group({
     chCode: [],
     chName: ['', Validators.required],
@@ -116,7 +116,7 @@ export class StuffTypeComponent {
     this.stuffTypeForm.reset();
   }
 
-  getSelectedItem(item: models.dtos.stufftypes.StuffTypeDto) {
+  getSelectedItem(item: models.dtos.stufftypes.AddStaffTypeParam) {
     this.stuffTypeForm.patchValue(item);
   }
 
