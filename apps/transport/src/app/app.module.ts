@@ -8,7 +8,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StuffTypeComponent } from './components/def/stuff/stuff-type/stuff-type.component';
-import {} from '@total/core';
+import { coreModules } from '@total/core';
+import { environment } from '../environments';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,9 @@ import {} from '@total/core';
     Modules.ServiceRegistryModule.forRoot({
       sender: Models.Enum.Projects.Transport,
     }),
-    // ReactiveFormsModule
+    coreModules.ServiceRegistryModule.forRoot({
+      environment,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
