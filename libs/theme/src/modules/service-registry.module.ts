@@ -37,7 +37,7 @@ import { materialComp } from '../material-components';
     ...materialComp,
   ],
   declarations: [LayoutComponent],
-  exports: [LayoutComponent, ...materialComp],
+  exports: [LayoutComponent, ...materialComp, SharedModule],
   providers: [...layoutServices, AuthenticationService],
 })
 export class ServiceRegistryModule {

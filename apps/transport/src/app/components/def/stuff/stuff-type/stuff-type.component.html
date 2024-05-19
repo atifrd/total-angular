@@ -1,8 +1,119 @@
-<lib-mat-datatable
-  [displayedColumns]="displayedColumns"
-  [dataSource]="dataSource"
->
-</lib-mat-datatable>
+<div class="row p-t-25">
+  <div class="col-lg-12">
+    <app-card cardTitle="3 Columns Form Layout">
+      <form
+        [formGroup]="stuffTypeForm"
+        (ngSubmit)="insUpAddress()"
+        class="editForm"
+        novalidate
+      >
+        <div class="row">
+          <div class="col-md-6">
+            <label for="name">chName</label>
+            <mat-form-field appearance="outline" class="w-100 m-t-5">
+              <input
+                matInput
+                type="text"
+                name="chName"
+                placeholder="Enter name"
+                [ngClass]="{
+                  'is-invalid':
+                    !chName?.valid &&
+                    (chName?.dirty || chName?.touched || isSubmit)
+                }"
+                required
+                formControlName="name"
+              />
+              @if (
+                !chName?.valid && (chName?.dirty || chName?.touched || isSubmit)
+              ) {
+                <mat-hint
+                  id="validation-password-error"
+                  class="text-warn-500 jquery-validation-error small form-text invalid-feedback"
+                >
+                  Please Enter a Valid Password.
+                </mat-hint>
+              }
+            </mat-form-field>
+          </div>
 
-<button mat-raised-button (click)="addData()">Add data</button>
-<button mat-raised-button (click)="clearTable()">clear data</button>
+          <div class="col-md-6">
+            <label for="chEnName">chEnName</label>
+            <mat-form-field appearance="outline" class="w-100 m-t-5">
+              <input
+                matInput
+                id="chEnName"
+                type="text"
+                placeholder="Enter chEnName"
+                [ngClass]="{
+                  'is-invalid':
+                    !chEnName?.valid &&
+                    (chEnName?.dirty || chEnName?.touched || isSubmit)
+                }"
+                formControlName="chEnName"
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <label for="chCMRCode">chCMRCode</label>
+            <mat-form-field appearance="outline" class="w-100 m-t-5">
+              <input
+                matInput
+                type="text"
+                name="chCMRCode"
+                placeholder="Enter chCMRCode"
+                formControlName="chCMRCode"
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-6">
+            <label for="chComment">chComment</label>
+            <mat-form-field appearance="outline" class="w-100 m-t-5">
+              <input
+                matInput
+                type="text"
+                name="chComment"
+                placeholder="Enter chComment"
+                formControlName="chComment"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="text-center">
+          <button
+            type="submit"
+            [disabled]="!stuffTypeForm.valid"
+            uiSref="work"
+            mat-flat-button
+            color="primary"
+          >
+            <div class="flex align-item-center">
+              Next
+              <span class="m-l-5"><i class="ti ti-chevron-right"></i></span>
+            </div>
+          </button>
+
+          <input
+            type="button"
+            class="btn btn-lg btn-danger mr-2"
+            (click)="cancel()"
+            value=" Back "
+          />
+        </div>
+      </form>
+    </app-card>
+  </div>
+
+  <div class="col-lh-12">
+    <lib-mat-datatable
+      [displayedColumns]="displayedColumns"
+      [dataSource]="dataSource"
+    >
+    </lib-mat-datatable>
+
+    <button mat-raised-button (click)="addData()">Add data</button>
+    <button mat-raised-button (click)="clearTable()">clear data</button>
+  </div>
+</div>
