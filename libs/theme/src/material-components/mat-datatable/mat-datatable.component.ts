@@ -66,7 +66,6 @@ export class MatDatatableComponent<T>
     );
     this.table.setNoDataRow(this.noDataRow);
   }
-  
 
   applyColumnFilter(column: string, event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -74,5 +73,9 @@ export class MatDatatableComponent<T>
       return (data[column] + '').toLowerCase().includes(filter);
     };
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  getRow(row: T) {
+    console.log('....', row, '...', typeof row);
   }
 }

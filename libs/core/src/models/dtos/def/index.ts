@@ -1,1 +1,1 @@
-export * from './staff-type'
+export * as stufftypes from './staff-types';

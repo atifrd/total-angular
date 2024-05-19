@@ -9,7 +9,7 @@
       >
         <div class="row">
           <div class="col-md-6">
-            <label for="name">chName</label>
+            <label for="chName">chName</label>
             <mat-form-field appearance="outline" class="w-100 m-t-5">
               <input
                 matInput
@@ -22,7 +22,7 @@
                     (chName?.dirty || chName?.touched || isSubmit)
                 }"
                 required
-                formControlName="name"
+                formControlName="chName"
               />
               @if (
                 !chName?.valid && (chName?.dirty || chName?.touched || isSubmit)
@@ -90,17 +90,22 @@
             color="primary"
           >
             <div class="flex align-item-center">
-              Next
+              Submit
               <span class="m-l-5"><i class="ti ti-chevron-right"></i></span>
             </div>
           </button>
 
-          <input
+          <button
             type="button"
-            class="btn btn-lg btn-danger mr-2"
+            mat-flat-button
+            color="dangar"
             (click)="cancel()"
-            value=" Back "
-          />
+          >
+            <div class="flex align-item-center">
+              cancel
+              <span class="m-l-5"><i class="ti ti-chevron-right"></i></span>
+            </div>
+          </button>
         </div>
       </form>
     </app-card>

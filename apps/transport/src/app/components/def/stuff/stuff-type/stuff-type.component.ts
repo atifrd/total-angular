@@ -5,25 +5,19 @@ import { MatDatatableComponent } from 'libs/theme/src/material-components/mat-da
 import { FormBuilder, Validators } from '@angular/forms';
 import { services, models } from '@total/core';
 import { finalize } from 'rxjs';
+import { Mat } from '@total/theme';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 1.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+const ELEMENT_DATA: models.dtos.stufftypes.StuffTypeDto[] = [
+  { chCode: '1', chName: 'Hydrogen', chEnName: '1.0079', chCMRCode: 'H' },
+  { chCode: '2', chName: 'Helium', chEnName: '1.0026', chCMRCode: 'He' },
+  { chCode: '3', chName: 'Lithium', chEnName: '6.941', chCMRCode: 'Li' },
+  { chCode: '4', chName: 'Beryllium', chEnName: '9.0122', chCMRCode: 'Be' },
+  { chCode: '5', chName: 'Boron', chEnName: '10.811', chCMRCode: 'B' },
+  { chCode: '6', chName: 'Carbon', chEnName: '12.0107', chCMRCode: 'C' },
+  { chCode: '7', chName: 'Nitrogen', chEnName: '14.0067', chCMRCode: 'N' },
+  { chCode: '8', chName: 'Oxygen', chEnName: '15.9994', chCMRCode: 'O' },
+  { chCode: '9', chName: 'Fluorine', chEnName: '18.9984', chCMRCode: 'F' },
+  { chCode: '10', chName: 'Neon', chEnName: ' 20.1797', chCMRCode: 'Ne' },
 ];
 
 @Component({
@@ -36,9 +30,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class StuffTypeComponent {
   isSubmit: boolean;
 
-  displayedColumns: string[] = ['position', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
+  displayedColumns: string[] = ['chCode', 'chName', 'chCMRCode', 'chEnName'];
+  dataSource = new MatTableDataSource<models.dtos.stufftypes.StuffTypeDto>(
+    ELEMENT_DATA,
+  );
+//https://stackblitz.com/edit/angular-material-table-with-form?file=package.json   
   stuffTypeForm = this.fb.group({
     chCode: [],
     chName: ['', Validators.required],
@@ -50,6 +46,7 @@ export class StuffTypeComponent {
   constructor(
     private fb: FormBuilder,
     private _stuffTypeService: services.def.StuffTypeService,
+    private _matDialogService: Mat.MatDialogService,
   ) {
     this.isSubmit = false;
   }
@@ -57,6 +54,7 @@ export class StuffTypeComponent {
   addData() {
     this.dataSource.data = ELEMENT_DATA;
   }
+
   clearTable() {
     this.dataSource.data = [];
   }
@@ -71,7 +69,9 @@ export class StuffTypeComponent {
   }
 
   add() {
-    let model = new models.AddStaffTypeParam(this.stuffTypeForm.value);
+    let model = new models.dtos.stufftypes.AddStaffTypeParam(
+      this.stuffTypeForm.value,
+    );
 
     this._stuffTypeService
       .AddStuffType(model)
@@ -86,7 +86,9 @@ export class StuffTypeComponent {
   }
 
   update() {
-    let model = new models.EditStaffTypeParam(this.stuffTypeForm.value);
+    let model = new models.dtos.stufftypes.EditStaffTypeParam(
+      this.stuffTypeForm.value,
+    );
     this._stuffTypeService
       .AddStuffType(model)
       .pipe(
@@ -99,11 +101,23 @@ export class StuffTypeComponent {
       });
   }
 
-  delete() {}
+  delete() {
+    this._matDialogService
+      .openDeletePrompt()
+      .afterClosed()
+      .subscribe((result) => {
+        if (result === true) {
+        }
+      });
+  }
 
   public cancel() {
     this.isSubmit = false;
     this.stuffTypeForm.reset();
+  }
+
+  getSelectedItem(item: models.dtos.stufftypes.StuffTypeDto) {
+    this.stuffTypeForm.patchValue(item);
   }
 
   //#region validation
