@@ -1,0 +1,22 @@
+<form [formGroup]="parentForm">
+  <div formGroupName="parentGroup">
+    <mat-form-field>
+      <input formControlName="parentItem1" type="text" matInput />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input formControlName="parentItem2" type="text" matInput />
+    </mat-form-field>
+  </div>
+  <app-transport-cargo-portage
+    [(parentForm)]="parentForm"
+  ></app-transport-cargo-portage>
+</form>
+
+<button type="button" (click)="getChildValue()">
+  getChildValue zzzzzzzzzzzz
+</button>
+<div>
+  sdfdsf:
+  {{ chilsFormvalue | json }}
+</div>

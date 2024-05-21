@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDatatableComponent } from 'libs/theme/src/material-components/mat-datatable/mat-datatable.component';
 import { FormBuilder, Validators } from '@angular/forms';
-import { services, models } from '@total/core';
+import { Services, Models } from '@total/core';
 import { finalize } from 'rxjs';
 import { Mat } from '@total/theme';
 
-const ELEMENT_DATA: models.dtos.stufftypes.StuffTypeDto[] = [
+const ELEMENT_DATA: Models.Dtos.Def.Stufftypes.StuffTypeDto[] = [
   { chCode: '1', chName: 'Hydrogen', chEnName: '1.0079', chCMRCode: 'H' },
   { chCode: '2', chName: 'Helium', chEnName: '1.0026', chCMRCode: 'He' },
   { chCode: '3', chName: 'Lithium', chEnName: '6.941', chCMRCode: 'Li' },
@@ -31,7 +31,7 @@ export class StuffTypeComponent {
   isSubmit: boolean;
 
   displayedColumns: string[] = ['chCode', 'chName', 'chCMRCode', 'chEnName'];
-  dataSource = new MatTableDataSource<models.dtos.stufftypes.StuffTypeDto>(
+  dataSource = new MatTableDataSource<Models.Dtos.Def.Stufftypes.StuffTypeDto>(
     ELEMENT_DATA,
   );
   //https://stackblitz.com/edit/angular-material-table-with-form?file=package.json
@@ -45,7 +45,7 @@ export class StuffTypeComponent {
 
   constructor(
     private fb: FormBuilder,
-    private _stuffTypeService: services.def.StuffTypeService,
+    private _stuffTypeService: Services.def.StuffTypeService,
     private _matDialogService: Mat.MatDialogService,
   ) {
     this.isSubmit = false;
@@ -69,7 +69,7 @@ export class StuffTypeComponent {
   }
 
   add() {
-    let model = new models.dtos.stufftypes.AddStaffTypeParam(
+    let model = new Models.Dtos.Def.Stufftypes.AddStaffTypeParam(
       this.stuffTypeForm.value,
     );
 
@@ -86,7 +86,7 @@ export class StuffTypeComponent {
   }
 
   update() {
-    let model = new models.dtos.stufftypes.EditStaffTypeParam(
+    let model = new Models.Dtos.Def.Stufftypes.EditStaffTypeParam(
       this.stuffTypeForm.value,
     );
     this._stuffTypeService
@@ -116,7 +116,7 @@ export class StuffTypeComponent {
     this.stuffTypeForm.reset();
   }
 
-  getSelectedItem(item: models.dtos.stufftypes.AddStaffTypeParam) {
+  getSelectedItem(item: Models.Dtos.Def.Stufftypes.AddStaffTypeParam) {
     this.stuffTypeForm.patchValue(item);
   }
 

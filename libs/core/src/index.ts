@@ -1,4 +1,4 @@
 export * from './lib/core/core.component';
-export * as services from './services';
-export * as models from './models';
-export * as coreModules from './modules';
+export * as Services from './services';
+export * as Models from './models';
+export * as CoreModules from './modules';

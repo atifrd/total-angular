@@ -1,2 +1,2 @@
-export * as dtos from './dtos';
-//export *  as viewModels from './view-models'
+export * as Dtos from './dtos';
+export * as ViewModels from './view-models';
