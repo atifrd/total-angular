@@ -58,16 +58,12 @@ export class JalaliDatepickerComponent {
   date: FormControl = new FormControl();
 
   @Output() jalaliDateChanged = new EventEmitter<Date>();
-
   @Input() set miladidate(value: Date) {
     if (!value) return;
-    console.log(`miladidate input in jalali component`);
     this.date = new FormControl(value.toISOString());
   }
 
-  constructor() {
-    //this.setDateToNow();
-  }
+  constructor() {}
 
   setDateToNow() {
     this.date.setValue(new Date().toISOString());

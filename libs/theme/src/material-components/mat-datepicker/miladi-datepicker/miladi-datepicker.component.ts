@@ -27,7 +27,6 @@ export class MiladiDatepickerComponent {
 
   @Input() set JalaliDate(value: Date) {
     if (!value) return;
-    console.log(`JalaliDate input in miladi component`);
     this.date = new FormControl(value.toISOString());
   }
 

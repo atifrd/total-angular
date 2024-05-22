@@ -1,10 +1,10 @@
 <input
   type="text"
   matInput
-[(ngModel)]="priceInput"  name="priceInput"
+  [(ngModel)]="priceValue"
+  name="priceInput"
   mask="separator"
   [allowNegativeNumbers]="false"
   (keyup)="onKeyup($event)"
   (blur)="onBlur($event)"
 />
- <!-- [formControl]="priceFormControl" -->
