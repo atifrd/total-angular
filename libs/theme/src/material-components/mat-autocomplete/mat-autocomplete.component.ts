@@ -1,12 +1,11 @@
+import { Component, Input, OnInit } from '@angular/core';
 import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  input,
-} from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+  ControlValueAccessor,
+  FormControl,
+  FormsModule,
+  NG_VALUE_ACCESSOR,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
@@ -16,11 +15,6 @@ import {
 } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-export interface State {
-  name: string;
-  value: number;
-}
-
 @Component({
   selector: 'lib-mat-autocomplete',
   standalone: true,
@@ -32,33 +26,48 @@ export interface State {
     ReactiveFormsModule,
     AsyncPipe,
   ],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: MatAutocompleteComponent,
+    },
+  ],
   templateUrl: './mat-autocomplete.component.html',
   styleUrl: './mat-autocomplete.component.scss',
 })
-export class MatAutocompleteComponent implements OnInit {
+export class MatAutocompleteComponent implements OnInit, ControlValueAccessor {
+  //#region ControlValueAccessor implementation
+  onChange = (result: string) => {};
+  onTouched: Function = () => {};
+  onWriteValue: Function = () => {};
+
+  //called by the Forms module to write a value into a form control
+  writeValue(value: string) {
+    this.myControl.setValue(value);
+  }
+  //report the value back to the parent form
+  registerOnChange(onChange: any) {
+    this.onChange = onChange;
+  }
+  //In order to report to the parent form that the control was touched
+  registerOnTouched(fn: Function) {
+    this.onTouched = fn;
+  }
+  //#endregion
+
   myControl = new FormControl('');
-  options: string[] = [];
-  filteredOptions: Observable<string[]>;
+  options: any[] = [];
+  filteredOptions: Observable<any[]>;
 
   @Input() set dataList(value: any) {
     this.options = value;
   }
 
-  //#region 2way databinding
-  ////2way databinding for parent of MatAutocompleteComponent
-  @Input() set selectedoption(value: string) {
-    //*bin value from parent form
-    if (!value) return;
-    this.myControl.setValue(value);
-  }
-
-  @Output() selectedoptionChange = new EventEmitter<string>();
-
   optionSelected(event: MatAutocompleteSelectedEvent) {
     //*send value to parent form
-    this.selectedoptionChange.emit(event.option.value);
+    this.onChange(event.option.value);
   }
-  //#endregion
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -67,8 +76,6 @@ export class MatAutocompleteComponent implements OnInit {
     );
   }
 
-
-  
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
