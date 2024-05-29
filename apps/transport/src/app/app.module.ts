@@ -12,12 +12,14 @@ import { CoreModules } from '@total/core';
 import { environment } from '../environments';
 import { CargoInfoComponent } from './components/transport/cargo/cargo-info/cargo-info.component';
 import { CargoPortageComponent } from './components/transport/cargo/cargo-portage/cargo-portage.component';
+import { StuffUnitComponent } from './components/def/stuff/stuff-unit/stuff-unit.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     SettingsComponent,
     StuffTypeComponent,
+    StuffUnitComponent,
     CargoInfoComponent,
     CargoPortageComponent,
   ],

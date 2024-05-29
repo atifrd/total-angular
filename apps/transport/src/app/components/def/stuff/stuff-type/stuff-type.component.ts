@@ -45,7 +45,7 @@ export class StuffTypeComponent {
 
   constructor(
     private fb: FormBuilder,
-    private _stuffTypeService: Services.def.StuffTypeService,
+    private _stuffTypeService: Services.Def.StuffTypeService,
     private _matDialogService: Mat.MatDialogService,
   ) {
     this.isSubmit = false;
