@@ -1,4 +1,4 @@
-import { Navigation } from "libs/theme/src/models/layout";
+import { Navigation } from 'libs/theme/src/models/layout';
 
 export const menus: Navigation[] = [
   {
@@ -17,27 +17,27 @@ export const menus: Navigation[] = [
             id: 'default',
             title: 'Default',
             type: 'item',
-            url: '/dashboard/default'
+            url: '/dashboard/default',
           },
           {
             id: 'analytics',
             title: 'Analytics',
             type: 'item',
-            url: '/dashboard/analytics'
-          }
-        ]
+            url: '/dashboard/analytics',
+          },
+        ],
       },
       {
         id: 'component',
         title: 'Components',
         type: 'item',
         classes: 'nav-item',
-        url: '/components/input/button',
+        url: 'cargo-info', ///components/input/button
         icon: '#custom-box-1',
         target: true,
-        breadcrumbs: false
-      }
-    ]
+        breadcrumbs: false,
+      },
+    ],
   },
   {
     id: 'widget',
@@ -51,7 +51,7 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/widget/statistics',
-        icon: '#custom-story'
+        icon: '#custom-story',
       },
       {
         id: 'data',
@@ -59,7 +59,7 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/widget/data',
-        icon: '#custom-fatrows'
+        icon: '#custom-fatrows',
       },
       {
         id: 'chart',
@@ -67,9 +67,9 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/widget/chart',
-        icon: '#custom-presentation-chart'
-      }
-    ]
+        icon: '#custom-presentation-chart',
+      },
+    ],
   },
   {
     id: 'application',
@@ -83,7 +83,7 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/application/calender',
-        icon: '#custom-calendar-1'
+        icon: '#custom-calendar-1',
       },
       {
         id: 'kanban',
@@ -91,7 +91,7 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/application/kanban',
-        icon: '#custom-kanban'
+        icon: '#custom-kanban',
       },
       {
         id: 'customer',
@@ -99,7 +99,7 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/application/customer',
-        icon: '#custom-notification-status'
+        icon: '#custom-notification-status',
       },
       {
         id: 'file-manager',
@@ -107,7 +107,7 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/application/file-manager',
-        icon: '#custom-document-filter'
+        icon: '#custom-document-filter',
       },
       {
         id: 'mail',
@@ -116,7 +116,7 @@ export const menus: Navigation[] = [
         classes: 'nav-item',
         url: '/application/email',
         icon: '#custom-direct-inbox',
-        breadcrumbs: false
+        breadcrumbs: false,
       },
       {
         id: 'profile',
@@ -128,21 +128,21 @@ export const menus: Navigation[] = [
             id: 'account',
             title: 'Account Profile',
             type: 'item',
-            url: '/application/profile/account'
+            url: '/application/profile/account',
           },
           {
             id: 'social',
             title: 'Social Profile',
             type: 'item',
-            url: '/application/profile/social'
+            url: '/application/profile/social',
           },
           {
             id: 'user',
             title: 'User Profile',
             type: 'item',
-            url: '/application/profile/user'
-          }
-        ]
+            url: '/application/profile/user',
+          },
+        ],
       },
       {
         id: 'e-commerce',
@@ -154,35 +154,35 @@ export const menus: Navigation[] = [
             id: 'product',
             title: 'Product',
             type: 'item',
-            url: '/application/e-commerce/product'
+            url: '/application/e-commerce/product',
           },
           {
             id: 'product-details',
             title: 'Product Details',
             type: 'item',
-            url: '/application/e-commerce/product-details/1'
+            url: '/application/e-commerce/product-details/1',
           },
           {
             id: 'product-list',
             title: 'Product List',
             type: 'item',
-            url: '/application/e-commerce/product-list'
+            url: '/application/e-commerce/product-list',
           },
           {
             id: 'new-product',
             title: 'Add New Product',
             type: 'item',
-            url: '/application/e-commerce/new-product'
+            url: '/application/e-commerce/new-product',
           },
           {
             id: 'checkout',
             title: 'Checkout',
             type: 'item',
-            url: '/application/e-commerce/checkout'
-          }
-        ]
-      }
-    ]
+            url: '/application/e-commerce/checkout',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 'forms',
@@ -196,7 +196,7 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/forms/wizard',
-        icon: '#custom-play'
+        icon: '#custom-play',
       },
       {
         id: 'validation',
@@ -204,7 +204,7 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/forms/validation',
-        icon: '#custom-password-check'
+        icon: '#custom-password-check',
       },
       {
         id: 'layouts',
@@ -216,27 +216,27 @@ export const menus: Navigation[] = [
             id: 'basic',
             title: 'Basic',
             type: 'item',
-            url: '/forms/layout/basic-layout'
+            url: '/forms/layout/basic-layout',
           },
           {
             id: 'multi-column',
             title: 'Multi Column',
             type: 'item',
-            url: '/forms/layout/multi-layout'
+            url: '/forms/layout/multi-layout',
           },
           {
             id: 'action-bar',
             title: 'Action Bar',
             type: 'item',
-            url: '/forms/layout/action-bar'
+            url: '/forms/layout/action-bar',
           },
           {
             id: 'Sticky Bar',
             title: 'Sticky Action Bar',
             type: 'item',
-            url: '/forms/layout/sticky-bar'
-          }
-        ]
+            url: '/forms/layout/sticky-bar',
+          },
+        ],
       },
       {
         id: 'plugins',
@@ -248,35 +248,35 @@ export const menus: Navigation[] = [
             id: 'mask',
             title: 'Mask',
             type: 'item',
-            url: '/forms/plugins/mask'
+            url: '/forms/plugins/mask',
           },
           {
             id: 'reCaptcha',
             title: 'reCaptcha',
             type: 'item',
-            url: '/forms/plugins/reCaptcha'
+            url: '/forms/plugins/reCaptcha',
           },
           {
             id: 'clip-board',
             title: 'Clipboard',
             type: 'item',
-            url: '/forms/plugins/clip-board'
+            url: '/forms/plugins/clip-board',
           },
           {
             id: 'editor',
             title: 'Editor',
             type: 'item',
-            url: '/forms/plugins/editor'
+            url: '/forms/plugins/editor',
           },
           {
             id: 'drop-zone',
             title: 'Drop Zone',
             type: 'item',
-            url: '/forms/plugins/drop-zone'
-          }
-        ]
-      }
-    ]
+            url: '/forms/plugins/drop-zone',
+          },
+        ],
+      },
+    ],
   },
   {
     id: 'table',
@@ -290,9 +290,9 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/material-table',
-        icon: '#custom-text-align-justify-center'
-      }
-    ]
+        icon: '#custom-text-align-justify-center',
+      },
+    ],
   },
   {
     id: 'chart',
@@ -306,9 +306,9 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/apex-chart',
-        icon: '#custom-graph'
-      }
-    ]
+        icon: '#custom-graph',
+      },
+    ],
   },
   {
     id: 'pages',
@@ -333,7 +333,7 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-1/login',
                 target: true,
-                breadcrumbs: false
+                breadcrumbs: false,
               },
               {
                 id: 'register',
@@ -341,7 +341,7 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-1/register',
                 target: true,
-                breadcrumbs: false
+                breadcrumbs: false,
               },
               {
                 id: 'forgot',
@@ -349,7 +349,7 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-1/forgot-password',
                 target: true,
-                breadcrumbs: false
+                breadcrumbs: false,
               },
               {
                 id: 'reset',
@@ -357,7 +357,7 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-1/reset-password',
                 target: true,
-                breadcrumbs: false
+                breadcrumbs: false,
               },
               {
                 id: 'check-mail',
@@ -365,7 +365,7 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-1/check-mail',
                 target: true,
-                breadcrumbs: false
+                breadcrumbs: false,
               },
               {
                 id: 'code-verify',
@@ -373,9 +373,9 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-1/code-verify',
                 target: true,
-                breadcrumbs: false
-              }
-            ]
+                breadcrumbs: false,
+              },
+            ],
           },
           {
             id: 'authentication-2',
@@ -388,7 +388,7 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-2/login',
                 target: true,
-                breadcrumbs: false
+                breadcrumbs: false,
               },
               {
                 id: 'register',
@@ -396,7 +396,7 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-2/register',
                 target: true,
-                breadcrumbs: false
+                breadcrumbs: false,
               },
               {
                 id: 'forgot',
@@ -404,7 +404,7 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-2/forgot-password',
                 target: true,
-                breadcrumbs: false
+                breadcrumbs: false,
               },
               {
                 id: 'reset',
@@ -412,7 +412,7 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-2/reset-password',
                 target: true,
-                breadcrumbs: false
+                breadcrumbs: false,
               },
               {
                 id: 'check-mail',
@@ -420,7 +420,7 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-2/check-mail',
                 target: true,
-                breadcrumbs: false
+                breadcrumbs: false,
               },
               {
                 id: 'code-verify',
@@ -428,9 +428,9 @@ export const menus: Navigation[] = [
                 type: 'item',
                 url: '/authentication-2/code-verify',
                 target: true,
-                breadcrumbs: false
-              }
-            ]
+                breadcrumbs: false,
+              },
+            ],
           },
           {
             id: 'authentication-3',
@@ -439,9 +439,9 @@ export const menus: Navigation[] = [
             classes: 'nav-item',
             url: '/authentication-3',
             target: true,
-            breadcrumbs: false
-          }
-        ]
+            breadcrumbs: false,
+          },
+        ],
       },
       {
         id: 'maintenance',
@@ -455,7 +455,7 @@ export const menus: Navigation[] = [
             type: 'item',
             url: '/maintenance/error-404',
             target: true,
-            breadcrumbs: false
+            breadcrumbs: false,
           },
           {
             id: 'error-500',
@@ -463,7 +463,7 @@ export const menus: Navigation[] = [
             type: 'item',
             url: '/maintenance/error-500',
             target: true,
-            breadcrumbs: false
+            breadcrumbs: false,
           },
           {
             id: 'under-constructor',
@@ -471,7 +471,7 @@ export const menus: Navigation[] = [
             type: 'item',
             url: '/maintenance/under-constructor',
             target: true,
-            breadcrumbs: false
+            breadcrumbs: false,
           },
           {
             id: 'coming-soon',
@@ -479,9 +479,9 @@ export const menus: Navigation[] = [
             type: 'item',
             url: '/maintenance/coming-soon',
             target: true,
-            breadcrumbs: false
-          }
-        ]
+            breadcrumbs: false,
+          },
+        ],
       },
       {
         id: 'contact-us',
@@ -491,7 +491,7 @@ export const menus: Navigation[] = [
         url: '/contact-us',
         icon: '#custom-24-support',
         target: true,
-        breadcrumbs: false
+        breadcrumbs: false,
       },
       {
         id: 'price',
@@ -503,15 +503,15 @@ export const menus: Navigation[] = [
             id: 'price-1',
             title: 'Price 1',
             type: 'item',
-            url: '/price/price-1'
+            url: '/price/price-1',
           },
           {
             id: 'price-2',
             title: 'Price 2',
             type: 'item',
-            url: '/price/price-2'
-          }
-        ]
+            url: '/price/price-2',
+          },
+        ],
       },
       {
         id: 'landing',
@@ -521,9 +521,9 @@ export const menus: Navigation[] = [
         url: '/landing',
         icon: '#custom-airplane',
         target: true,
-        breadcrumbs: false
-      }
-    ]
+        breadcrumbs: false,
+      },
+    ],
   },
   {
     id: 'other',
@@ -542,7 +542,7 @@ export const menus: Navigation[] = [
             title: 'Level 2.1',
             type: 'item',
             url: 'javascript:',
-            external: true
+            external: true,
           },
           {
             id: 'menu-level-2.2',
@@ -555,14 +555,14 @@ export const menus: Navigation[] = [
                 title: 'Menu Level 3.1',
                 type: 'item',
                 url: 'javascript:',
-                external: true
+                external: true,
               },
               {
                 id: 'menu-level-3.2',
                 title: 'Menu Level 3.2',
                 type: 'item',
                 url: 'javascript:',
-                external: true
+                external: true,
               },
               {
                 id: 'menu-level-3.3',
@@ -575,18 +575,18 @@ export const menus: Navigation[] = [
                     title: 'Menu Level 4.1',
                     type: 'item',
                     url: 'javascript:',
-                    external: true
+                    external: true,
                   },
                   {
                     id: 'menu-level-4.2',
                     title: 'Menu Level 4.2',
                     type: 'item',
                     url: 'javascript:',
-                    external: true
-                  }
-                ]
-              }
-            ]
+                    external: true,
+                  },
+                ],
+              },
+            ],
           },
           {
             id: 'menu-level-2.3',
@@ -599,14 +599,14 @@ export const menus: Navigation[] = [
                 title: 'Menu Level 3.1',
                 type: 'item',
                 url: 'javascript:',
-                external: true
+                external: true,
               },
               {
                 id: 'menu-level-3.2',
                 title: 'Menu Level 3.2',
                 type: 'item',
                 url: 'javascript:',
-                external: true
+                external: true,
               },
               {
                 id: 'menu-level-3.3',
@@ -619,20 +619,20 @@ export const menus: Navigation[] = [
                     title: 'Menu Level 4.1',
                     type: 'item',
                     url: 'javascript:',
-                    external: true
+                    external: true,
                   },
                   {
                     id: 'menu-level-4.2',
                     title: 'Menu Level 4.2',
                     type: 'item',
                     url: 'javascript:',
-                    external: true
-                  }
-                ]
-              }
-            ]
-          }
-        ]
+                    external: true,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
         id: 'sample-page',
@@ -640,7 +640,7 @@ export const menus: Navigation[] = [
         type: 'item',
         classes: 'nav-item',
         url: '/sample-page',
-        icon: '#custom-notification-status'
+        icon: '#custom-notification-status',
       },
       {
         id: 'document',
@@ -650,8 +650,8 @@ export const menus: Navigation[] = [
         url: 'https://phoenixcoded.gitbook.io/able-pro/v/angular',
         icon: '#custom-gitBook',
         target: true,
-        external: true
-      }
-    ]
-  }
+        external: true,
+      },
+    ],
+  },
 ];

@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDatatableComponent } from 'libs/theme/src/material-components/mat-datatable/mat-datatable.component';
@@ -27,13 +27,12 @@ const ELEMENT_DATA: Models.Dtos.Def.Stufftypes.StuffTypeDto[] = [
   templateUrl: './stuff-type.component.html',
   styleUrl: './stuff-type.component.css',
 })
-export class StuffTypeComponent {
+export class StuffTypeComponent implements OnInit {
   isSubmit: boolean;
 
   displayedColumns: string[] = ['chCode', 'chName', 'chCMRCode', 'chEnName'];
-  dataSource = new MatTableDataSource<Models.Dtos.Def.Stufftypes.StuffTypeDto>(
-    ELEMENT_DATA,
-  );
+  dataSource =
+    new MatTableDataSource<Models.Dtos.Def.Stufftypes.StuffTypeDto>();
   //https://stackblitz.com/edit/angular-material-table-with-form?file=package.json
   stuffTypeForm = this.fb.group({
     chCode: [],
@@ -49,6 +48,9 @@ export class StuffTypeComponent {
     private _matDialogService: Mat.MatDialogService,
   ) {
     this.isSubmit = false;
+  }
+  ngOnInit(): void {
+    this.dataSource.data = ELEMENT_DATA;
   }
 
   addData() {
@@ -111,13 +113,14 @@ export class StuffTypeComponent {
       });
   }
 
+  
+  getSelectedItem(item: Models.Dtos.Def.Stufftypes.AddStaffTypeParam) {
+    this.stuffTypeForm.patchValue(item);
+  }
+
   public cancel() {
     this.isSubmit = false;
     this.stuffTypeForm.reset();
-  }
-
-  getSelectedItem(item: Models.Dtos.Def.Stufftypes.AddStaffTypeParam) {
-    this.stuffTypeForm.patchValue(item);
   }
 
   //#region validation

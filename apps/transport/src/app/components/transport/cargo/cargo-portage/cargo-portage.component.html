@@ -1,58 +1,60 @@
-<div [formGroup]="parentForm" autocomplete="off">
-  <ng-container formArrayName="childFormArray">
-    <mat-table [dataSource]="tableDataSource">
-      <ng-container matColumnDef="chCode">
-        <mat-header-cell *matHeaderCellDef> chCode </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          {{ element.get('chCode').value }}
-        </mat-cell>
-      </ng-container>
+<app-card cardTitle="اطلاعات بارگیری">
+  <div [formGroup]="parentForm" autocomplete="off">
+    <ng-container formArrayName="childFormArray">
+      <mat-table [dataSource]="tableDataSource">
+        <ng-container matColumnDef="chCode">
+          <mat-header-cell *matHeaderCellDef> chCode </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.get('chCode').value }}
+          </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="guidRecNo">
-        <mat-header-cell *matHeaderCellDef> guidRecNo </mat-header-cell>
-        <mat-cell *matCellDef="let element" [formGroup]="element">
-          <mat-form-field>
-            <input
-              matInput
-              placeholder="guidRecNo"
-              formControlName="guidRecNo"
-              required
-            />
-          </mat-form-field>
-        </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="guidRecNo">
+          <mat-header-cell *matHeaderCellDef> guidRecNo </mat-header-cell>
+          <mat-cell *matCellDef="let element" [formGroup]="element">
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="guidRecNo"
+                formControlName="guidRecNo"
+                required
+              />
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="chPortageStatusCode">
-        <mat-header-cell *matHeaderCellDef> stetus code </mat-header-cell>
-        <mat-cell *matCellDef="let element" [formGroup]="element">
-          <mat-form-field>
-            <mat-select formControlName="chPortageStatusCode" required>
-              @for (portageStatus of portageStatusList; track portageStatus) {
-                <mat-option [value]="portageStatus.chCode">
-                  {{ portageStatus.chName }}</mat-option
-                >
-              }
-            </mat-select>
-          </mat-form-field>
-        </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="chPortageStatusCode">
+          <mat-header-cell *matHeaderCellDef> stetus code </mat-header-cell>
+          <mat-cell *matCellDef="let element" [formGroup]="element">
+            <mat-form-field>
+              <mat-select formControlName="chPortageStatusCode" required>
+                @for (portageStatus of portageStatusList; track portageStatus) {
+                  <mat-option [value]="portageStatus.chCode">
+                    {{ portageStatus.chName }}</mat-option
+                  >
+                }
+              </mat-select>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="Delete">
-        <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
-        <mat-cell *matCellDef="let row; let i = index">
-          <button mat-button (click)="deleteRowFromTable(i)">Delete</button>
-        </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="Delete">
+          <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+          <mat-cell *matCellDef="let row; let i = index">
+            <button mat-button (click)="deleteRowFromTable(i)">Delete</button>
+          </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="actions">
-        <td mat-footer-cell *matFooterCellDef colspan="2">
-          <button mat-button (click)="addRowTotable()">add</button>
-        </td>
-      </ng-container>
+        <ng-container matColumnDef="actions">
+          <td mat-footer-cell *matFooterCellDef colspan="2">
+            <button mat-button (click)="addRowTotable()">add</button>
+          </td>
+        </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-      <mat-footer-row *matFooterRowDef="['actions']"></mat-footer-row>
-    </mat-table>
-  </ng-container>
-</div>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        <mat-footer-row *matFooterRowDef="['actions']"></mat-footer-row>
+      </mat-table>
+    </ng-container>
+  </div>
+</app-card>

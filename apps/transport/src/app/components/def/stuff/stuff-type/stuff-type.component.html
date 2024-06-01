@@ -115,6 +115,7 @@
     <lib-mat-datatable
       [displayedColumns]="displayedColumns"
       [dataSource]="dataSource"
+      (getSelecterRow)="getSelectedItem($event)"
     >
     </lib-mat-datatable>
 

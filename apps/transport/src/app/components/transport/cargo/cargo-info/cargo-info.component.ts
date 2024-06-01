@@ -20,6 +20,7 @@ export class CargoInfoComponent {
       parentGroup: this.fb.group({
         parentItem1: [''],
         parentItem2: [''],
+        parentItem3: [''],
       }),
       childFormArray: this.fb.array([]),
     });

@@ -19,7 +19,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Models } from '@total/core';
 import { ViewModels } from 'libs/core/src/models';
 import { Observable, map } from 'rxjs';
-
+//اطلاعات بارگیری
+//mat-table with inputs
 @Component({
   selector: 'app-transport-cargo-portage',
   templateUrl: './cargo-portage.component.html',
