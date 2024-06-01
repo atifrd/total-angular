@@ -1,8 +1,4 @@
 interface Date {
-  addDays(days: number): Date;
-  getHourMinute(): string;
-  getDateWithoutTime(): Date;
-  setHourMinute(time: string): Date;
   getUtcFullDate(): Date;
 }
 

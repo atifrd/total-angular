@@ -33,7 +33,7 @@
     <tr
       mat-row
       *matRowDef="let row; columns: displayedColumns"
-      (click)="getRow(row)"
+      (click)="rowClicked(row)"
       [class.demo-row-is-clicked]="row"
     ></tr>
 

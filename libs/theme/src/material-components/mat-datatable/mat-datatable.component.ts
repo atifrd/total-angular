@@ -4,7 +4,9 @@ import {
   Component,
   ContentChild,
   ContentChildren,
+  EventEmitter,
   Input,
+  Output,
   QueryList,
   ViewChild,
 } from '@angular/core';
@@ -52,6 +54,7 @@ export class MatDatatableComponent<T>
 
   @Input() dataSource: MatTableDataSource<T>;
   @Input('displayedColumns') displayedColumns: string[];
+  @Output() getSelecterRow = new EventEmitter<T>();
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
@@ -75,7 +78,8 @@ export class MatDatatableComponent<T>
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  getRow(row: T) {
+  rowClicked(row: T) {
     console.log('....', row, '...', typeof row);
+    this.getSelecterRow.emit(row);
   }
 }
