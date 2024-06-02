@@ -2,7 +2,12 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ServiceRegistryModule_CONFIG } from './serivce-registery-module-config';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  HttpClientModule,
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { layoutServices } from '../ui/layout/layout-services-list';
 import { LayoutComponent } from '../ui/layout/components/layout.component';
@@ -18,6 +23,7 @@ import {
   VerticalMenuModule,
 } from '../ui/layout/components/menu';
 import { materialComp } from '../material-components';
+import { LoadingComponent, loadingInterceptor } from '../loading';
 
 @NgModule({
   imports: [
@@ -34,11 +40,17 @@ import { materialComp } from '../material-components';
     CompactMenuModule,
     BreadcrumbComponent,
     FooterComponent,
+    LoadingComponent,
     ...materialComp,
+    
   ],
   declarations: [LayoutComponent],
   exports: [LayoutComponent, ...materialComp, SharedModule],
-  providers: [...layoutServices, AuthenticationService],
+  providers: [
+    ...layoutServices,
+    AuthenticationService,
+    provideHttpClient(withFetch(), withInterceptors([loadingInterceptor])),
+  ],
 })
 export class ServiceRegistryModule {
   static forRoot(
