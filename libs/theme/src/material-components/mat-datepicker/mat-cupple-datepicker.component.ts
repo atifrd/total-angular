@@ -60,8 +60,14 @@ export class MatCuppleDatepickerComponent implements ControlValueAccessor {
     if (!miladiDate) return;
 
     this.miladiDate = miladiDate;
+console.log('miladiDate ',miladiDate)
+   // let utcDate = miladiDate.getUtcFullDate();
+   console.log('miladiDate.toISOString()',miladiDate.toISOString())
 
-    let utcDate = miladiDate.getUtcFullDate();
+   console.log('Date.parse(miladiDate.toISOString()) ',Date.parse (miladiDate.toISOString()) )
+
+   const dateObject =parseISOString (miladiDate);
+   console.log('parseISOString',dateObject)
     this.onChange(miladiDate);
   }
 
@@ -70,9 +76,9 @@ export class MatCuppleDatepickerComponent implements ControlValueAccessor {
 
     this.jalaliDate = jalaliDate; //send jalali date to  miladi component to adjust itself
     let jalalidateValue = new Date(jalaliDate.toISOString());
-    let utcDate = jalalidateValue.getUtcFullDate();
+    //let utcDate = jalalidateValue.getUtcFullDate();
 
-    this.onChange(utcDate);
+    this.onChange(jalaliDate);
   }
 }
 
@@ -80,3 +86,16 @@ export class MatCuppleDatepickerComponent implements ControlValueAccessor {
 //   jalalidate?: Date;
 //   miladidate?: Date;
 // }
+function parseISOString(date:Date): Date {
+  //const b = s.split(/\D+/); // Split by non-digit characters
+
+  console.log('........', date.getUTCHours(),date.getHours())
+  return new Date(
+    date.getUTCFullYear(),
+    date.getUTCMonth(),
+    date.getUTCDate(),
+    date.getUTCHours(),
+    date.getUTCMinutes(),
+    date.getUTCSeconds(),
+  );
+}
