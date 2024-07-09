@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {Loading} from '@total/theme'
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
@@ -13,9 +14,10 @@ export class CargoInfoComponent {
   parentForm!: FormGroup;
   parentGroup!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private _loadingService :Loading.LoadingService) {}
 
   ngOnInit(): void {
+    this._loadingService.loadingOn()
     this.parentForm = this.fb.group({
       parentGroup: this.fb.group({
         parentItem1: [''],
