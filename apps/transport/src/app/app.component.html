@@ -1,10 +1,8 @@
-<app-layout>
-</app-layout>
+ <app-layout>
+</app-layout> 
 
 <!-- <input type="button" (click)="xxxx()" value="salam" title="hi" />
-<lib-mat-cupple-datepicker
-  [(CupleDate)]="CupleDate"
-></lib-mat-cupple-datepicker>
+
 
 <div>dddddddddddddddddddddddddddd</div>
 <p>
@@ -17,3 +15,68 @@
 
 <p>price is : <lib-mat-price-input [(price)]="price"></lib-mat-price-input></p>
 <app-transport-stuff-type></app-transport-stuff-type> -->
+<!-- <form  role="form"  [formGroup]="optionForm">
+<lib-mat-price-input    formControlName="myprice"></lib-mat-price-input>
+<input type="button" (click)="doConsole()">
+</form> -->
+<!-- <mat-spinner></mat-spinner>
+<app-transport-stuff-type></app-transport-stuff-type> -->
+
+
+
+
+<!-- <app-transport-cargo-info></app-transport-cargo-info> -->
+
+
+
+ <form role="form" [formGroup]="form">
+  <lib-mat-price-input formControlName="totalQuantity"></lib-mat-price-input>
+  @if (
+    !totalQuantity?.valid && (totalQuantity?.dirty || totalQuantity?.touched)
+  ) {
+    <mat-hint> Please Enter a Valid price. </mat-hint>
+  }
+
+  <lib-mat-cupple-datepicker
+    formControlName="myDate"
+  ></lib-mat-cupple-datepicker>
+
+  <lib-mat-autocomplete [dataList]="options" formControlName="selectdOption"></lib-mat-autocomplete>
+</form> 
+
+
+<!-- <input type="button" (click)="doConsole()" />
+
+<lib-mat-price-input [(ngModel)]="price"></lib-mat-price-input>
+
+<h1>Form</h1>
+<ng-container [formGroup]="formGroup">
+  <label>Name </label>
+  <input    formControlName="name"><br/>
+  <label>Surname </label>
+  <input  formControlName="surname"><br/>
+<br>
+  
+
+
+  <label>Username </label>
+  <input  formControlName="username">
+
+
+  <label>mat </label>
+  <input
+  type="text"
+  matInput
+  name="priceInput" 
+/> 
+<label>custom </label>
+<span ><app-transport-stuff-unit  ></app-transport-stuff-unit></span>-->
+<!-- <lib-mat-price-input ></lib-mat-price-input> -->
+  <!-- <input type="button"     onclick="alert('hi')" value="salam">
+   
+</ng-container>
+<div>ddddddddddddddddddddddddddddddd</div> -->
+
+
+<!-- <lib-mat-tree-checklist></lib-mat-tree-checklist> -->
+
